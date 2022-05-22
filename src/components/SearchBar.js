@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import MicIcon from '@mui/icons-material/Mic';
+// import MicIcon from '@mui/icons-material/Mic';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputBase, Paper, IconButton } from '@mui/material';
 
@@ -17,7 +17,7 @@ const SearchBar = () => {
                     placeholder='Ask BERT a question...'
                 />
                 <IconButton>
-                    <MicIcon />
+                    <ClearIcon />
                 </IconButton>
             </Paper>
         </>
