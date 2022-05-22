@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const NavBar = ({ disabled, getQuestion }) => {
+const NavBar = ({ disabled, answerQuestion }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const NavBar = ({ disabled, getQuestion }) => {
             }}
             >
                 <MenuIcon />
-                <SearchBar disabled={disabled} getQuestion={getQuestion}/>
+                <SearchBar disabled={disabled} answerQuestion={answerQuestion}/>
                 <AccountCircleIcon />
             </Toolbar>
         </AppBar>

@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputBase, Paper, IconButton } from '@mui/material';
 
-const SearchBar = ({ disabled, getQuestion }) => {
+const SearchBar = ({ disabled, answerQuestion }) => {
 
 
     return (
@@ -17,7 +17,7 @@ const SearchBar = ({ disabled, getQuestion }) => {
                 </IconButton>
                 <InputBase
                     placeholder='Ask BERT a question...'
-                    onKeyDown={getQuestion}
+                    onKeyPress={answerQuestion}
                     { ...disabled ? 'disabled' : '' }
                 />
                 <IconButton

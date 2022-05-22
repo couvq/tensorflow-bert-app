@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from 'react';
 import { TextField, Typography } from '@mui/material';
 
 const App = () => {
-  const [question, setQuestion] = useState('');
+  // const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState();
   const [model, setModel] = useState(null);
   const [disabled, setDisabled] = useState(true); // disabled to start
@@ -24,20 +24,19 @@ const App = () => {
     console.log('Model Loaded');
   }
 
-  const getQuestion = (e) => {
-    if(e.which === 13) { // enter key was pressed
-      setQuestion(e.target.value);
-      console.log(e.target.value);
+  // const getQuestion = async (e) => {
+  //   if (e.which === 13) { // enter key was pressed
+  //     setQuestion(e.target.value);
+  //     console.log(e.target.value);
+  //   }
+  // }
 
-      answerQuestion();
-    }
-  }
-
-  const answerQuestion = async () => {
-    if(question !== null && model !== null) {
+  const answerQuestion = async (e) => {
+    if(e.which === 13 && model !== null) {
       console.log('question submitted');
       const passage = passageRef.current.value;
-      // console.log(passage);
+      const question = e.target.value;
+      console.log(`question is: ${question} \npassage is: ${passage}`);
 
       const answers = await model.findAnswers(question, passage);
       setAnswer(answers);
@@ -54,25 +53,28 @@ const App = () => {
 
   return (
     <>
-      <NavBar disabled={disabled} getQuestion={getQuestion}/>
+      <NavBar disabled={disabled} answerQuestion={answerQuestion} />
       {
         model == null ?
-        <Loader />
-        : 
-        <div style={{
-          marginTop: '5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          marginLeft: '3rem',
-          marginRight: '3rem'
+          <Loader />
+          :
+          <div style={{
+            marginTop: '5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginLeft: '3rem',
+            marginRight: '3rem'
           }}
           >
-          <Typography variant='h6'>Passage</Typography>
-          <TextField inputRef={passageRef} />
-          <Typography variant='h6'>Answers</Typography>
-          <AnswerCard />
-        </div>
+            <Typography variant='h6'>Passage</Typography>
+            <TextField inputRef={passageRef} />
+            <Typography variant='h6'>Answers</Typography>
+            {answer ? answer.map((ans, idx) => <AnswerCard key={idx} index={idx + 1} answer={ans.text} />)
+              :
+              <Typography>No answers yet! Ask BERT a question.</Typography>
+            }
+          </div>
       }
     </>
   );
