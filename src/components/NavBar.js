@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-const NavBar = () => {
+const NavBar = ({ disabled }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
             }}
             >
                 <MenuIcon />
-                <SearchBar />
+                <SearchBar disabled={disabled}/>
                 <AccountCircleIcon />
             </Toolbar>
         </AppBar>

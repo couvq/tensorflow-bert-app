@@ -12,6 +12,7 @@ const App = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState();
   const [model, setModel] = useState();
+  const [disabled, setDisabled] = useState(true); // disabled to start
 
   const passageRef = useRef(null);
 
@@ -23,13 +24,14 @@ const App = () => {
 
   useEffect(() => {
     loadModel();
+    setDisabled(false);
   }, []);
 
 
 
   return (
     <>
-      <NavBar />
+      <NavBar disabled={disabled}/>
       {
         model == null ?
         <Loader />

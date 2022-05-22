@@ -4,19 +4,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputBase, Paper, IconButton } from '@mui/material';
 
-const SearchBar = () => {
+const SearchBar = ({ disabled }) => {
 
 
     return (
         <>
             <Paper>
-                <IconButton>
+                <IconButton
+                 {...disabled ? 'disabled' : ''}
+                >
                     <SearchIcon />
                 </IconButton>
                 <InputBase
                     placeholder='Ask BERT a question...'
+                    { ...disabled ? 'disabled' : '' }
                 />
-                <IconButton>
+                <IconButton
+                    { ...disabled ? 'disabled' : '' }
+                >
                     <ClearIcon />
                 </IconButton>
             </Paper>
