@@ -68,7 +68,10 @@ const App = () => {
           }}
           >
             <Typography variant='h6'>Passage</Typography>
-            <TextField inputRef={passageRef} />
+            <TextField 
+              inputRef={passageRef}
+              multiline={true}
+              />
             <Typography variant='h6'>Answers</Typography>
             {answer ? answer.map((ans, idx) => <AnswerCard key={idx} index={idx + 1} answer={ans.text} />)
               :
