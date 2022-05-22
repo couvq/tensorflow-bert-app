@@ -4,7 +4,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import MicIcon from '@mui/icons-material/Mic';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputBase, Paper, IconButton } from '@mui/material';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import './animateMicToggle.css';
 
 const SearchBar = ({ disabled, answerQuestion }) => {
 
@@ -40,12 +41,13 @@ const SearchBar = ({ disabled, answerQuestion }) => {
                 {
                     input === '' ?
                         <IconButton
+                        className={micActive ? 'mic-button active' : 'mic-button'}
                         onClick={(e) => {
                             if (!browserSupportsSpeechRecognition) {
                                 alert('use a different browser to enable speech to text');
                             }
                             setMicActive(!micActive);
-                            if (micActive) {
+                            if (!micActive) {
                                 startListening();
                                 console.log('listening')
                                 setInput(transcript);
