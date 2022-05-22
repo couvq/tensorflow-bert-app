@@ -28,6 +28,8 @@ const App = () => {
     if(e.which === 13) { // enter key was pressed
       setQuestion(e.target.value);
       console.log(e.target.value);
+
+      answerQuestion();
     }
   }
 
@@ -35,6 +37,7 @@ const App = () => {
     if(question !== null && model !== null) {
       console.log('question submitted');
       const passage = passageRef.current.value;
+      // console.log(passage);
 
       const answers = await model.findAnswers(question, passage);
       setAnswer(answers);
