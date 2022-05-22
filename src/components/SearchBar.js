@@ -41,6 +41,7 @@ const SearchBar = ({ disabled, answerQuestion }) => {
                 {
                     input === '' ?
                         <IconButton
+                        {...disabled ? 'disabled' : ''}
                         className={micActive ? 'mic-button active' : 'mic-button'}
                         onClick={(e) => {
                             if (!browserSupportsSpeechRecognition) {
