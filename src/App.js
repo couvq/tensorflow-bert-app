@@ -15,17 +15,29 @@ const App = () => {
 
   const passageRef = useRef(null);
 
-  const getQuestion = (e) => {
-    if(e.which === 13) { // enter key was pressed
-
-    }
+  const loadModel = async () => {
+    const loadedModel = await qna.load();
+    setModel(loadedModel);
+    console.log('Model Loaded');
   }
+
+  useEffect(() => {
+    loadModel();
+  }, []);
 
 
 
   return (
     <>
       <NavBar />
+      {
+        model == null ?
+        <Loader />
+        : 
+        <div style={{marginTop: '5rem'}}>
+          Model Has been loaded!
+        </div>
+      }
     </>
   );
 }
