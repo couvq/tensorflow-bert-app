@@ -7,19 +7,21 @@ import { InputBase, Paper, IconButton } from '@mui/material';
 const SearchBar = () => {
 
 
-  return (
-    <>
-        <Paper>
-            <IconButton>
-                <SearchIcon />
-            </IconButton>
-            <InputBase />
-            <IconButton>
-                <MicIcon />
-            </IconButton>
-        </Paper>
-    </>
-  );
+    return (
+        <>
+            <Paper>
+                <IconButton>
+                    <SearchIcon />
+                </IconButton>
+                <InputBase
+                    placeholder='Ask BERT a question...'
+                />
+                <IconButton>
+                    <MicIcon />
+                </IconButton>
+            </Paper>
+        </>
+    );
 }
 
 export default SearchBar;
