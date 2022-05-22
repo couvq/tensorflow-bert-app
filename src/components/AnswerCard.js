@@ -8,7 +8,8 @@ const AnswerCard = ({ index, answer}) => {
     <>
         <Card sx={{
             padding: '0.5rem',
-            margin: '1rem'
+            marginTop: '1rem',
+            marginBottom: '1rem'
         }}>
             <Stack direction={'row'} spacing={2}>
                 <Typography> {index} </Typography>
