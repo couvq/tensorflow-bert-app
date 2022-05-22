@@ -1,6 +1,7 @@
 import React from 'react';
 import "./index.css";
 import NavBar from './components/NavBar';
+import AnswerCard from './components/AnswerCard';
 
 import * as tf from '@tensorflow/tfjs';
 import * as qna from '@tensorflow-models/qna';
@@ -67,7 +68,7 @@ const App = () => {
           <Typography variant='h6'>Passage</Typography>
           <TextField inputRef={passageRef} />
           <Typography variant='h6'>Answers</Typography>
-          
+          <AnswerCard />
         </div>
       }
     </>
