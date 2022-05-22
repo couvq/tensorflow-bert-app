@@ -22,6 +22,13 @@ const App = () => {
     console.log('Model Loaded');
   }
 
+  const getQuestion = (e) => {
+    if(e.which === 13) { // enter key was pressed
+      setQuestion(e.target.value);
+      console.log(e.target.value);
+    }
+  }
+
   useEffect(() => {
     loadModel();
     setDisabled(false);
@@ -31,7 +38,7 @@ const App = () => {
 
   return (
     <>
-      <NavBar disabled={disabled}/>
+      <NavBar disabled={disabled} getQuestion={getQuestion}/>
       {
         model == null ?
         <Loader />
