@@ -11,7 +11,6 @@ const SearchBar = ({ disabled, answerQuestion }) => {
         <>
             <Paper>
                 <IconButton
-                 {...disabled ? 'disabled' : ''}
                 >
                     <SearchIcon />
                 </IconButton>
