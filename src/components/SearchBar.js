@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-// import MicIcon from '@mui/icons-material/Mic';
+import MicIcon from '@mui/icons-material/Mic';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputBase, Paper, IconButton } from '@mui/material';
 
@@ -27,7 +27,14 @@ const SearchBar = ({ disabled, answerQuestion }) => {
                     { ...disabled ? 'disabled' : '' }
                     value={input}
                 />
-                <IconButton
+
+                {
+                    input === '' ? 
+                    <IconButton>
+                        <MicIcon />
+                    </IconButton>
+                    :
+                    <IconButton
                     { ...disabled ? 'disabled' : '' }
                     onClick={()=> {
                         setInput('');
@@ -35,6 +42,7 @@ const SearchBar = ({ disabled, answerQuestion }) => {
                 >
                     <ClearIcon />
                 </IconButton>
+                }
             </Paper>
         </>
     );
