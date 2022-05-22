@@ -38,7 +38,7 @@ const SearchBar = ({ disabled, answerQuestion }) => {
                 />
 
                 {
-                    input === '' || micActive ?
+                    input === '' ?
                         <IconButton
                         onClick={(e) => {
                             if (!browserSupportsSpeechRecognition) {
